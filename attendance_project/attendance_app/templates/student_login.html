@@ -1,0 +1,73 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url("{% static 'images/bg.jpg' %}");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            display: flex;
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 30px;
+            padding: 40px;
+            align-items: center;
+        }
+
+        .container img {
+            width: 250px; /* adjust size of GIF */
+            margin-right: 40px;
+            border-radius: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+        }
+
+        input, button {
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 16px;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        p.error {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- GIF on left -->
+        <img src="{% static 'images/lap.gif' %}" alt="Student GIF">
+
+        <!-- Login form -->
+        <form method="POST">
+            {% csrf_token %}
+            <h2>Student Login</h2>
+            {% if error %}
+                <p class="error">{{ error }}</p>
+            {% endif %}
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+</body>
+</html>

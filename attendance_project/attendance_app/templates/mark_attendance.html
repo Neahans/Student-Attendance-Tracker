@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mark Attendance</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #f6f6f6;
+            padding: 30px;
+        }
+        table {
+            width: 100%;
+            background: white;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ccc;
+            text-align: center;
+        }
+        .submit-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        .msg-success {
+            color: green;
+            font-weight: bold;
+        }
+        .msg-error {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+
+    <!-- 🔔 Instant popup validation -->
+    <script>
+        function validateAttendanceForm() {
+            const dateField = document.querySelector('input[name="date"]').value;
+
+            if (!dateField) {
+                alert("⚠️ Please select a date before marking attendance!");
+                return false; // stop form submission
+            }
+            return true; // allow submission
+        }
+    </script>
+</head>
+
+<body>
+
+    <h2>Mark Attendance</h2>
+
+    <!-- Django messages -->
+    {% if messages %}
+        {% for message in messages %}
+            <p class="{% if message.tags == 'error' %}msg-error{% else %}msg-success{% endif %}">
+                {{ message }}
+            </p>
+        {% endfor %}
+    {% endif %}
+
+    <!-- 🧾 Attendance Form -->
+    <form method="POST" onsubmit="return validateAttendanceForm()">
+        {% csrf_token %}
+
+        <label><b>Select Date:</b></label>
+        <input type="date" name="date" value="{{ today }}">
+        <br><br>
+
+        <table>
+            <tr>
+                <th>Roll No</th>
+                <th>Name</th>
+                <th>Status</th>
+            </tr>
+
+            {% for student in students %}
+            <tr>
+                <td>{{ student.roll_number }}</td>
+                <td>{{ student.name }}</td>
+                <td>
+                    <select name="status_{{ student.id }}">
+                        <option value="Present">Present</option>
+                        <option value="Absent">Absent</option>
+                    </select>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <button type="submit" class="submit-btn">Submit</button>
+    </form>
+
+    <br>
+    <a href="{% url 'dashboard' %}">⬅️ Back to Dashboard</a>
+
+</body>
+</html>

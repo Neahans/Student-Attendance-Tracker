@@ -1,0 +1,108 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial;
+            background-image: url("{% static 'images/bg.jpg' %}");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+        }
+
+        .container {
+            display: flex;
+            width: 90%;
+            max-width: 1100px;
+            background: rgba(255, 255, 255, 0.20);
+            border-radius: 25px;
+            padding: 30px;
+            backdrop-filter: blur(6px);
+        }
+
+        /* LEFT SIDE (About) */
+        .left {
+            width: 50%;
+            color: white;
+            padding: 40px;
+        }
+
+        .left h2 {
+            font-size: 35px;
+            text-shadow: 1px 1px 3px black;
+        }
+
+        .left p {
+            font-size: 18px;
+            line-height: 1.6;
+            text-shadow: 1px 1px 3px black;
+        }
+
+        /* RIGHT SIDE (Login options) */
+        .right {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 30px;
+            padding: 20px;
+        }
+
+        .login-box {
+            background: rgba(255, 255, 255, 0.85);
+            padding: 25px;
+            border-radius: 20px;
+            text-align: center;
+            font-size: 22px;
+            font-weight: bold;
+            transition: transform 0.2s;
+        }
+
+        .login-box:hover {
+            transform: scale(1.05);
+        }
+
+        a {
+            text-decoration: none;
+            color: #003366;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- LEFT SIDE -->
+        <div class="left">
+            <h2>Welcome to XYZ College</h2>
+            <p>
+                XYZ College is committed to providing excellent education and building 
+                strong foundations for students. With highly experienced faculty, 
+                modern facilities, and a friendly learning environment, we strive 
+                to create future-ready students.
+            </p>
+        </div>
+
+        <!-- RIGHT SIDE -->
+        <div class="right">
+            <a href="{% url 'login' %}">
+                <div class="login-box">👨‍🏫 Faculty Login</div>
+            </a>
+
+            <a href="{% url 'student_login' %}">
+                <div class="login-box">🎓 Student Login</div>
+            </a>
+        </div>
+
+    </div>
+
+</body>
+</html>

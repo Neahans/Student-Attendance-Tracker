@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Profile</title>
+    <style>
+        table {
+            width: 80%;
+            margin: auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #999;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h2 style="text-align:center;">{{ student.name }}'s Attendance Summary</h2>
+    <form method="get" style="text-align:center; margin-bottom:20px;">
+    <label>From:</label>
+    <input type="date" name="from_date" value="{{ from_date }}">
+
+    <label>To:</label>
+    <input type="date" name="to_date" value="{{ to_date }}">
+
+    <button type="submit">Filter</button>
+    </form>
+
+    <table>
+        <tr>
+            <th>Subject</th>
+            <th>Present</th>
+            <th>Total</th>
+            <th>Percentage</th>
+        </tr>
+        {% for row in data %}
+        <tr>
+            <td>{{ row.subject.name }}</td>
+            <td>{{ row.present }}</td>
+            <td>{{ row.total }}</td>
+            <td>
+                {% if row.percentage < 75 %}
+                    <span style="color: red">{{ row.percentage }}%</span>
+                {% else %}
+                    <span style="color: green">{{ row.percentage }}%</span>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <div style="text-align: center;">
+    <a href="{% url 'student_logout' %}">🚪 Logout</a>
+    </div>
+</body>
+</html>

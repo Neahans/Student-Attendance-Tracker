@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    {% load static %}
+    <style>
+        body {
+            font-family: Arial;
+            background-image: url("{% static 'images/bg.jpg' %}");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            padding: 140px;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.85);
+            padding: 40px;
+            border-radius: 30px;
+            max-width: 600px;
+            margin: auto;
+        }
+
+        /* Flex layout: GIF left, text right */
+        .content-box {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .content-box img {
+            width: 120px;
+            border-radius: 20px;
+        }
+
+        .info {
+            text-align: left;
+            font-size: 22px;
+        }
+
+        a {
+            display: block;
+            margin: 10px 0;
+            text-decoration: none;
+            font-size: 20px;
+            color: #0056b3;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+
+        <div class="content-box">
+            <!-- GIF ON THE LEFT -->
+            <img src="{% static 'images/repo.gif' %}" alt="gif sticker">
+
+            <!-- Text on the right -->
+            <div class="info">
+                <h2>Welcome, {{ teacher.user.username }}</h2>
+                <p>Subject: <strong>{{ teacher.subject.name }}</strong></p>
+            </div>
+        </div>
+
+        <br>
+
+        <a href="{% url 'logout' %}">Logout</a>
+        <a href="{% url 'mark_attendance' %}">➕ Mark Attendance</a>
+        <a href="{% url 'view_attendance' %}">📊 View Attendance</a>
+    </div>
+</body>
+</html>

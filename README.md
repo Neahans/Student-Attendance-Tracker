@@ -1,6 +1,6 @@
 # Student Attendance Tracker
 
-![Login GIF](https://i.imgur.com/YourGifLink.gif) 
+<img src="frst.gif" min-width="300px" max-width="300px" width="350px" align="right">
 
 A **Django-based web application** to manage and track student attendance efficiently. Teachers can login, add attendance, and view reports, while students can check their attendance status. This project is perfect for schools, colleges, and educational institutions.
 
@@ -14,8 +14,6 @@ A **Django-based web application** to manage and track student attendance effici
 - **User-friendly Dashboard**
 - **Secure with Django Authentication**
 - **Responsive Design for Desktop & Mobile**
-
-![Dashboard GIF](https://i.imgur.com/YourGifLink2.gif)
 
 ---
 

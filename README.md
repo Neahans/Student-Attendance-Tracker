@@ -1,8 +1,8 @@
 # Student Attendance Tracker
 
-<img src="frst.gif" min-width="300px" max-width="300px" width="350px" align="right">
+<img src="frst.gif" min-width="250px" max-width="250px" width="200px" align="right">
 
-A **Django-based web application** to manage and track student attendance efficiently. Teachers can login, add attendance, and view reports, while students can check their attendance status. This project is perfect for schools, colleges, and educational institutions.
+A **Django-based web application, Student Attendance Tracker is designed to simplify attendance management for schools and colleges. Built with Python, Django, HTML, CSS, and JavaScript, it allows teachers to securely log in, mark attendance, and generate reports. The app saves time, reduces manual errors, and improves accountability, making attendance tracking efficient and reliable for both teachers and students.
 
 ---
 

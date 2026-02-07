@@ -33,10 +33,10 @@ A **Django-based web application, Student Attendance Tracker is designed to simp
 ![Dashboard Page](images/dashboard.png)
 
 ### Faculty login Page
-![Faculty login Page](images/faculty_login.png)
+![Faculty login Page](images/facultylogin.png)
 
 ### Student Login Page
-![Student Login Page](images/student_login.png)
+![Student Login Page](images/studentlogin.png)
 
 ### Faculty Dashboard Page
-![Faculty  Dashboard Page](images/faculty_dashboard.png)
+![Faculty  Dashboard Page](images/facultydashboard.png)
